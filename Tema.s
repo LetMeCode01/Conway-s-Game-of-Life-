@@ -21,8 +21,8 @@ main:
     pushl $m
     pushl $formatScanf
     call scanf
-    addl $8, %esp		#era addl %ebx
-    incl m			#inlocuit incl cu $2 pentru logica mai usoara la conway
+    addl $8, %esp		
+    incl m			
 
     pushl $n
     pushl $formatScanf
@@ -56,7 +56,7 @@ et_for:
 
     movl i, %eax
     movl $0, %edx
-    mull n			#era m in loc de n
+    mull n			
     addl j, %eax
     lea matrice, %edi
     
@@ -96,7 +96,7 @@ et_for_evol:
     		xor %edx, %edx
     		mull n
     		addl columnIndex, %eax
-    		xor %ebx, %ebx		#ebx = suma vecini
+    		xor %ebx, %ebx		
     		
     		subl n, %eax
     		decl %eax
@@ -117,13 +117,13 @@ et_for_evol:
     		addl (%edi, %eax, 4), %ebx
     		decl %eax
     		sub n, %eax
-    					#nr vecini
-    		cmp $2, %ebx		#<2
+    					
+    		cmp $2, %ebx	
     		jl celula_moarta
-    		cmp $3, %ebx		#>3
+    		cmp $3, %ebx	
     		jg celula_moarta	
     		je celula_vie
-    					#==2
+    					
     		mov (%edi, %eax, 4), %ecx
     		mov %ecx, (%esi, %eax, 4)
     		jmp sfarsit_celula
@@ -140,9 +140,7 @@ et_for_evol:
     	sfarsit_col:
     	incl lineIndex
     	jmp conway_for_lin
-    		
-    
-    
+    	
 	et_cop_inapoi:
 		lea matrice, %edi
 		lea copie, %esi
@@ -153,7 +151,6 @@ et_for_evol:
 			loop for_copie		
     incl ev
     jmp et_for_evol
-
 
 et_afis_matr:
     movl $1, lineIndex
@@ -169,7 +166,7 @@ for_columns:
     je cont
     movl lineIndex, %eax
     movl $0, %edx
-    mull n				#era m in loc de n
+    mull n				
     addl columnIndex, %eax
     lea matrice, %edi
     movl (%edi, %eax, 4), %ebx
@@ -177,7 +174,7 @@ for_columns:
     pushl %ebx
     pushl $formatPrintf
     call printf
-    addl $8, %esp		#era addl %ebx
+    addl $8, %esp		
 
     pushl $0
     call fflush
@@ -187,7 +184,7 @@ for_columns:
     jmp for_columns
 
 cont:
-    pushl $newLine		#inlocuit syscall cu printf ca e mai simplu
+    pushl $newLine		
     call printf
     addl $4, %esp
 
