@@ -78,8 +78,7 @@ et_for_evol:
     cmp %ecx, k
     je et_afis_matr
     
-    et_logica_conway:
-    
+ et_logica_conway:
     mov $1, lineIndex
     conway_for_lin:
     	movl lineIndex, %ebx
