@@ -15,7 +15,7 @@ formatScanf: .asciz "%ld"
 formatPrintf: .asciz "%ld "
 newLine: .asciz "\n"
 .text
-.global main
+.global main 
 
 main:
     pushl $m
