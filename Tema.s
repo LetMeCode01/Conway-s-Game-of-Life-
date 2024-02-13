@@ -144,10 +144,10 @@ et_for_evol:
 		lea matrice, %edi
 		lea copie, %esi
 		movl $400, %ecx
-		for_copie:
-			mov (%esi, %ecx, 4), %eax
-			mov %eax, (%edi, %ecx, 4)
-			loop for_copie		
+	for_copie:
+		mov (%esi, %ecx, 4), %eax
+		mov %eax, (%edi, %ecx, 4)
+		loop for_copie		
     incl ev
     jmp et_for_evol
 
